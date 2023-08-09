@@ -5,10 +5,8 @@ import PropTypes from 'prop-types';
 
 export default function Carousel({ students }) {
   const [expandedStudentId, setExpandedStudentId] = useState(null);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const carouselRef = useRef(null);
-
   const [scrollInterval, setScrollInterval] = useState(null);
+  const carouselRef = useRef(null);
 
   const startScrolling = (direction) => {
     const interval = setInterval(() => {
@@ -18,14 +16,16 @@ export default function Carousel({ students }) {
     setScrollInterval(interval);
   };
 
+  console.log("Expanded Student ID:", expandedStudentId);
+  console.log("Student Data:", students[expandedStudentId]);
+
   return (
     <>
       <div className="carousel-wrapper">
-
         <button 
           className="left-arrow" 
           onMouseDown={() => startScrolling('left')} 
-          onMouseUp={() => clearInterval(scrollInterval)}  // Clear interval here
+          onMouseUp={() => clearInterval(scrollInterval)}
         >
           ←
         </button>
@@ -42,22 +42,20 @@ export default function Carousel({ students }) {
         <button 
           className="right-arrow" 
           onMouseDown={() => startScrolling('right')} 
-          onMouseUp={() => clearInterval(scrollInterval)}  // Clear interval here
+          onMouseUp={() => clearInterval(scrollInterval)} 
         >
           →
         </button>
-
       </div>
 
-      <div className="pagination">
-        {students.map((_, index) => (
-          <span
-            key={index}
-            className={`dot ${index === activeSlide ? 'active' : ''}`}
-            onClick={() => setActiveSlide(index)}
-          ></span>
-        ))}
-      </div>
+      {expandedStudentId !== null && (
+        <div className="expanded-details-container">
+          <h4>CodeWars Data:</h4>
+          <p>Current Total: {students[expandedStudentId]?.codewars?.current?.total}</p>
+          {/* ... add other details ... */}
+          <button onClick={() => setExpandedStudentId(null)}>See Less...</button>
+        </div>
+      )}
     </>
   );
 }

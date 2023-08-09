@@ -1,6 +1,25 @@
+h3 {
+    margin: 0px;
+    color: #feedcd;
+}
+
+p {
+    margin: 0px;
+    color: #eefffc;
+}
+
+span {
+  color: #ffe6d8;
+}
+
+[href="#"] {
+    margin-top: 10px;
+    color: rgb(39, 241, 252);
+}
+
 .carousel-wrapper {
   display: flex;
-  align-items: center; /* vertically centers the items */
+  align-items: center;
 }
 
 .carousel-container {
@@ -9,7 +28,7 @@
   overflow: hidden;
   width: 100%;
   height: 350px;
-  gap: 16px;
+  gap: 8px;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -24,10 +43,9 @@
   align-items: center;
   position: relative;
   flex: 0 0 auto;
-  width: 200px;
+  width: 225px;
   height: 300px;
   margin: 30px 20px;
-  background: rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -39,7 +57,7 @@
 
 .carousel-card:hover {
   transform: scale(1.1);
-  margin-top: 10px; /* Translates the card up */
+  margin-top: 10px;
 }
 
 .profilePhoto {
@@ -68,24 +86,28 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.expanded-details-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
 }
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.dot.active {
-  background-color: #717171;
+.expanded-details-container {
+  position: fixed; /* Use fixed instead of absolute to position it relative to the viewport */
+  bottom: 0;
+  left: 0; /* Ensure it starts from the left edge */
+  right: 0; /* Ensure it spans the entire width */
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it's on top of other elements */
 }

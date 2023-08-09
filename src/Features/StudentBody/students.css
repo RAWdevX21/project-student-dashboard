@@ -4,14 +4,14 @@
   background: url(./assets/glass-profile-card.png) no-repeat center center;
   background-size: cover;
   position: relative;
-  border-radius: 10px; /* Rounded corners */
-  padding: 5px; /* Space around the image */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
+  align-items: center;
 }
 
 .card img {
@@ -19,8 +19,9 @@
   height: 200px;
   object-fit: cover;
   position: absolute;
-  top: 5px; /* adjust this value to move the photo down */
+  top: 5px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 5px;
 }
+
